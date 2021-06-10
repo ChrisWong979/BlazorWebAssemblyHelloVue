@@ -1,4 +1,6 @@
 ﻿@inherits LayoutComponentBase
+@using Microsoft.JSInterop
+@inject IJSRuntime JS
 
 <div class="sidebar">
     <NavMenu />
@@ -9,7 +11,14 @@
         <a href="http://blazor.net" target="_blank" class="ml-md-auto">About</a>
     </div>
 
-    <div class="content px-4">
+    <div class="content px-4" id="app" v-cloak>
         @Body
     </div>
 </div>
+
+@code {
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        await JS.InvokeVoidAsync("newVueApp");
+    }
+}
