@@ -24,14 +24,14 @@
 
     <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
     <script>
-      function newVueApp() {
+      window.newVueApp = function () {
         new Vue({
           el: "#app",
           data: {
             message: "Hello from Vue!",
           },
         });
-      }
+      };
     </script>
   </body>
 </html>
