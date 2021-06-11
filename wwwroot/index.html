@@ -28,7 +28,12 @@
         new Vue({
           el: "#app",
           data: {
-            message: "Hello from Vue!",
+            counter: 0,
+          },
+          methods: {
+            increment() {
+              this.counter++;
+            },
           },
         });
       };
